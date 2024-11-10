@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { PostService } from '../../@service/post.service';
+
 
 @Component({
   selector: 'app-create-post',
@@ -25,8 +27,11 @@ export class CreatePostComponent {
   postForm!: FormGroup
   tags: string[] = []
 
-  constructor(private fb: FormBuilder, private router: Router, private snackBar: MatSnackBar) {
-  }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private postService: PostService
+    ) { }
 
   ngOnInit() {
     this.postForm = this.fb.group({
@@ -52,5 +57,18 @@ export class CreatePostComponent {
       this.tags.splice(index, 1);
     }
   }
+
+  createPost(){
+    const data = this.postForm.value;
+    data.tags = this.tags;
+
+    this.postService.createNewPost(data).subscribe(res=>{
+      this.snackBar.open("已成功發表貼文！！！","確認");
+      this.router.navigateByUrl('/')
+    }, error=>{
+        this.snackBar.open("發表貼文時有誤，請稍後再嘗試","確認")
+    })
+  }
+
 
 }

@@ -1,0 +1,25 @@
+.contaner {
+    margin: 16px;
+    max-width: 60%;
+    padding-bottom: 30px;
+}
+
+mat-card {
+    padding: 10px;
+}
+
+.example-header-image{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg');
+    background-size: cover;
+}
+
+mat-card-footer{
+    margin-left: 20px;
+}
+
+.post-img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin-top: 15px;
+}

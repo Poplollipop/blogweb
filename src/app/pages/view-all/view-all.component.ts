@@ -38,7 +38,7 @@ export class ViewAllComponent {
 
   getAllPosts() {
     this.postService.getAllPost().subscribe(res => {
-      console.log(res);
+
       this.allPosts = res;
     }, error => {
       this.snackBar.open("搜尋錯誤，請稍後再試", "確認")

@@ -1,7 +1,66 @@
 <div *ngIf="postData" class="container">
     <mat-card>
         <mat-card-header>
-            
+            <div mat-card-avatar class="head-image"></div>
+            <mat-card-title>{{ postData.name }}</mat-card-title>
+            <mat-card-subtitle>由 {{ postData.postedBy }} 發布 | 於{{ postData.date | date:'medium'}} 發布</mat-card-subtitle>
         </mat-card-header>
+        <img mat-card-image [src]="postData.img" height="300px" class="img" alt="Card Image" />
+        <mat-card-content>
+            {{ postData.content }}
+        </mat-card-content><br>
+        <mat-chip-set>
+            <mat-chip *ngFor="let tag of postData.tags">{{ tag }}</mat-chip>
+        </mat-chip-set>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="likePost()">{{ postData.likeCount }}
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" style="margin-left: 10px;">{{ postData.viewCount
+                }}<mat-icon>visibility</mat-icon></button>
+        </mat-card-actions>
     </mat-card>
+
+
+    <mat-card class="comment-card">
+        <mat-card-content>
+            <h5>留下你的評論！</h5>
+            <div>
+                <form [formGroup]="commentForm">
+                    <mat-form-field appearance="fill">
+                        <mat-label>評論內容</mat-label>
+                        <textarea matInput formControlName="content"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>由誰發布</mat-label>
+                        <textarea matInput formControlName="postedBy"></textarea>
+                    </mat-form-field>
+                    <button mat-raised-button (click)="sendComment()" color="primary" style="float: right;"
+                        [disabled]="!commentForm.valid">送出評論</button>
+                </form>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div style="margin-top: 20px;">
+        <h4>評論區</h4>
+        <div class="comment-container">
+            <mat-card *ngFor="let comment of comments" class="comment-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="header-image"></div>
+                    <mat-card-title>由 {{ comment.postedBy }}</mat-card-title>
+                    <mat-card-subtitle>於 {{ comment.createdAt | date:'medium'}} 發表</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    {{ comment.content }}
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+
+
+
 </div>

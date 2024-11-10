@@ -1,5 +1,22 @@
-<div class="container" *ngFor="let item of allPosts">
+<div class="search">
+    <mat-form-field appearance="outline" class="search-input" style="margin-top: 50px; margin-left: 10px;">
+        <mat-label>輸入關鍵字搜尋</mat-label>
 
+        <input matInput [(ngModel)]="name">
+        <button mat-button matSuffix color="primary" (click)="searchByName()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+
+<div class="empty" *ngIf="result.length == 0">
+    <mat-icon class="icon">no_sim</mat-icon>
+    <br>
+    <span>查無資料！</span>
+</div>
+
+<div class="card-container" *ngFor="let item of result">
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
@@ -27,7 +44,4 @@
                 [routerLink]="['/view-post', item.id]">查看貼文</button>
         </mat-card-actions>
     </mat-card>
-
-
-
 </div>

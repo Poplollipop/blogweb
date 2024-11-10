@@ -3,15 +3,15 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-post',
   standalone: true,
   imports: [
-    MatCardModule,
+    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatChipsModule,
@@ -37,7 +37,7 @@ export class CreatePostComponent {
     })
   }
 
-  add(event: any) {
+  add(event: any): void {
     const value = (event.value || '').trim();
     if (value) {
       this.tags.push(value);
@@ -45,7 +45,7 @@ export class CreatePostComponent {
     event.chipInput!.clear();
   }
 
-  remove(tag: any) {
+  remove(tag: any): void {
     const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
@@ -53,5 +53,4 @@ export class CreatePostComponent {
     }
   }
 
-  
 }

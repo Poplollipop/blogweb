@@ -43,6 +43,7 @@
         </mat-chip-grid><br><br><br>
 
 
-        <button mat-raised-button color="primary" style="float: right;" [disabled]="!postForm.valid" (click)="createPost()">新增貼文</button>
+        <button style="float: right;" [disabled]="!postForm.valid" (click)="createPost()">新增貼文</button>
+        <button style="float: right; margin-right: 10px;" (click)="gobacktohomepage()">取消貼文</button>
     </form>
 </div>

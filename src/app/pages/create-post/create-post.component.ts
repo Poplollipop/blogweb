@@ -23,6 +23,9 @@ import { PostService } from '../../@service/post.service';
   styleUrl: './create-post.component.scss'
 })
 export class CreatePostComponent {
+gobacktohomepage() {
+  this.router.navigateByUrl('/')
+}
 
   postForm!: FormGroup
   tags: string[] = []
@@ -64,7 +67,7 @@ export class CreatePostComponent {
 
     this.postService.createNewPost(data).subscribe(res=>{
       this.snackBar.open("已成功發表貼文！！！","確認");
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/view-all')
     }, error=>{
         this.snackBar.open("發表貼文時有誤，請稍後再嘗試","確認")
     })

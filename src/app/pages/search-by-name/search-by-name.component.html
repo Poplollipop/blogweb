@@ -1,6 +1,6 @@
 <div class="search">
     <mat-form-field appearance="outline" class="search-input" style="margin-top: 50px; margin-left: 10px;">
-        <mat-label>輸入關鍵字搜尋</mat-label>
+        <mat-label style="color: white;">輸入關鍵字搜尋</mat-label>
 
         <input matInput [(ngModel)]="name">
         <button mat-button matSuffix color="primary" (click)="searchByName()">
@@ -11,9 +11,9 @@
 
 
 <div class="empty" *ngIf="result.length == 0">
-    <mat-icon class="icon">no_sim</mat-icon>
+    <mat-icon class="icon" style="color: white;">no_sim</mat-icon>
     <br>
-    <span>查無資料！</span>
+    <span style="color: white;">查無資料！</span>
 </div>
 
 <div class="card-container" *ngFor="let item of result">

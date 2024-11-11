@@ -11,7 +11,7 @@
             <mat-grid-tile [colspan]="2" [rowspan]="1">
                 <img mat-card-image [src]="item.img" class="post-img" alt="Card Image" />
             </mat-grid-tile>
-            <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <mat-grid-tile class="content test" [colspan]="3" [rowspan]="1">
                 <mat-card-content>
                     {{item.content.length > 600 ? item.content.substr(0,600) + '...' : item.content}}
                 </mat-card-content>

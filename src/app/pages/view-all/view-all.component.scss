@@ -23,3 +23,10 @@ mat-card-footer{
     object-fit: cover;
     margin-top: 15px;
 }
+
+::ng-deep {
+  .mat-grid-tile-content {
+     justify-content: left !important;
+ }
+}
+

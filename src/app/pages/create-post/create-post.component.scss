@@ -26,3 +26,12 @@ form:hover {
     font-size: 0.8rem;
     color: red;
   }
+
+  mat-chip-row {
+    background-color: white !important;  /* 設置背景顏色為白色 */
+
+  }
+
+  mat-chip-row mat-chip-remove {
+    color: black !important;  /* 確保移除按鈕顏色為黑色 */
+  }

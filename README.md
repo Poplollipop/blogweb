@@ -2,6 +2,7 @@
 
 ## 專案簡介
 一個基於 Spring Boot 和 MySQL 的部落格管理系統，提供文章管理、使用者管理、評論管理等功能。
+![image](https://github.com/Poplollipop/blog/blob/main/demo.png)
 
 ## 技術
 - **後端**: Java Spring Boot

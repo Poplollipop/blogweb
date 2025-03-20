@@ -1,11 +1,10 @@
 .container {
-  background-image: url('https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg?cs=srgb&dl=pexels-pixabay-355465.jpg&fm=jpg');
-  background-size: auto;
+  background-image: url('/homepage-background.jpeg');
   background-position: top center;
   background-position: center;
-  background-repeat: repeat;
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
+  background-size: cover;
 }
 
 

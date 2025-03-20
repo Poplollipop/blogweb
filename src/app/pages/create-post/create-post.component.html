@@ -1,49 +1,49 @@
 <div class="container"
-    style="background: url(https://preview.redd.it/galaxy-stars-space-digital-art-wallpaper-1920-1080-v0-o1kf930avsla1.jpg?auto=webp&s=d318db2ee8741f48b736339520013d84bd9e2145)">
-    <form [formGroup]="postForm">
+  style="background-image: url('/create-post-background.jpg'); width: 100vw;height: 100vh; background-size: cover;">
+  <form [formGroup]="postForm">
 
-        <mat-label>文章名字</mat-label>
-        <input matInput formControlName="name" style="width: 60%; margin-left: 20px;">
-        <div class="error" *ngIf="postForm.get('name')?.touched && !postForm.get('name')?.value">
-            該欄位是必填的！
-        </div><br><br><br>
+    <mat-label>文章名字</mat-label>
+    <input matInput formControlName="name" style="width: 60%; margin-left: 20px;">
+    <div class="error" *ngIf="postForm.get('name')?.touched && !postForm.get('name')?.value">
+      該欄位是必填的！
+    </div><br><br><br>
 
-        <mat-label>圖片</mat-label>
-        <input matInput formControlName="img" style="width: 60%; margin-left: 50px;">
-        <div class="error" *ngIf="postForm.get('img')?.touched && !postForm.get('img')?.value">
-            該欄位是必填的！
-        </div><br><br><br>
-
-
-        <mat-label>內容</mat-label>
-        <textarea matInput rows="5" formControlName="content" style="width: 60%; margin-left: 50px;"></textarea>
-
-        <div class="error" *ngIf="postForm.get('content')?.touched && !postForm.get('content')?.value">
-            該欄位是必填的！
-        </div><br><br>
-
-        <mat-label>發佈者</mat-label>
-        <input matInput formControlName="postedBy" style="width: 60%; margin-left: 35px;">
-
-        <div class="error" *ngIf="postForm.get('postedBy')?.touched && !postForm.get('postedBy')?.value">
-            該欄位是必填的！
-        </div><br><br><br><br><br>
+    <mat-label>圖片</mat-label>
+    <input matInput formControlName="img" style="width: 60%; margin-left: 50px;">
+    <div class="error" *ngIf="postForm.get('img')?.touched && !postForm.get('img')?.value">
+      該欄位是必填的！
+    </div><br><br><br>
 
 
-        <mat-label>標籤</mat-label>
-        <mat-chip-grid #chipGrid aria-label="Enter Tags">
-            <mat-chip-row *ngFor="let tag of tags; let i = index" (removed)="remove(tag)">
-                {{tag}}
-                <button matChipRemove>
-                    <mat-icon>cancel</mat-icon>
-                </button>
-            </mat-chip-row>
+    <mat-label>內容</mat-label>
+    <textarea matInput rows="5" formControlName="content" style="width: 60%; margin-left: 50px;"></textarea>
 
-            <input placeholder="新增標籤..." [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)" />
-        </mat-chip-grid><br><br><br>
+    <div class="error" *ngIf="postForm.get('content')?.touched && !postForm.get('content')?.value">
+      該欄位是必填的！
+    </div><br><br>
+
+    <mat-label>發佈者</mat-label>
+    <input matInput formControlName="postedBy" style="width: 60%; margin-left: 35px;">
+
+    <div class="error" *ngIf="postForm.get('postedBy')?.touched && !postForm.get('postedBy')?.value">
+      該欄位是必填的！
+    </div><br><br><br><br><br>
 
 
-        <button style="float: right;" [disabled]="!postForm.valid" (click)="createPost()">新增貼文</button>
-        <button style="float: right; margin-right: 10px;" (click)="gobacktohomepage()">取消貼文</button>
-    </form>
+    <mat-label>標籤</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Enter Tags">
+      <mat-chip-row *ngFor="let tag of tags; let i = index" (removed)="remove(tag)">
+        {{tag}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+
+      <input placeholder="新增標籤..." [matChipInputFor]="chipGrid" (matChipInputTokenEnd)="add($event)" />
+    </mat-chip-grid><br><br><br>
+
+
+    <button style="float: right;" [disabled]="!postForm.valid" (click)="createPost()">新增貼文</button>
+    <button style="float: right; margin-right: 10px;" (click)="gobacktohomepage()">取消貼文</button>
+  </form>
 </div>

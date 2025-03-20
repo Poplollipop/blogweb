@@ -54,6 +54,6 @@ components: 包含所有的 Angular 元件，負責展示資料，與後端 API 
 services: 負責與後端 API 進行通訊，處理 HTTP 請求。
 
 例如：post.service.ts, comment.service.ts
-app.module.ts: 註冊所有的 Angular 模組、元件和服務，並配置應用的依賴關係。
+
 
 
